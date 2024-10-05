@@ -208,3 +208,62 @@ Após executar o comando, você será solicitado a inserir a senha do usuário e
 Ao final os dados serão todos importados para o banco de dados.
 
 ![](Imagem/IMPORTADA.png)
+
+## Consultando dados que foram importados para o banco de dados utilizando funções do PostGIS
+
+ShapeFile necessários para realizar as consultas abaixo:
+
+```
+Municípios de Pernambuco
+Microrregiões de Pernambuco
+```
+
+### Retorna todos os municípios que fazem parte da microrregião de Garanhuns
+
+```
+SELECT n.nm_mun, n.geom FROM municipios n, microrregioes m WHERE m.nm_micro = 'Garanhuns' AND ST_Contains(m.geom, n.geom);
+```
+
+### Retorna a área em KM² da cidade de Garanhuns
+
+`geom::geography` converter a coluna `geom` de `geometry` para `geography`. Essa conversão é importa quando queremos um resultado com medidas reais que leve em consideração a curvatura da terra.
+
+```
+SELECT (ST_Area(geom::geography)/1000000) AS area, nm_mun FROM municipios WHERE nm_mun = 'Garanhuns';
+```
+
+### Retorna as áreas em KM² de todas as cidade de Pernanbuco
+
+```
+SELECT (ST_Area(geom::geography)/1000000) AS area, nm_mun FROM municipios;
+```
+
+### Retorna todas as cidades que fazem divisa com Garanhuns
+
+```
+SELECT c1.nm_mun AS municipios_vizinhas FROM municipios c1, municipios c2 WHERE ST_Touches(c1.geom, c2.geom) AND c2.nm_mun = 'Garanhuns';
+```
+
+### Realiza a união de duas cidades Garanhuns e Jucati
+
+```
+SELECT ST_Union(m1.geom, m2.geom) AS area_unida FROM municipios m1, municipios m2 WHERE m1.nm_mun='Garanhuns' AND m2.nm_mun='Jucati';
+```
+
+### Retorna o centro geométrico do polígono de Garanhuns
+
+```
+SELECT ST_Centroid(geom) FROM municipios WHERE nm_mun = 'Garanhuns';
+```
+
+### Encontra os municipios mais próximos de um determinado ponto
+
+```
+SELECT nm_mun, ST_Distance(geom::geography, ST_GeomFromText('POINT(-36.46328362 -8.87669479)', 4326)::geography) AS distancia FROM municipios ORDER BY distancia;
+```
+
+### Calcula a área total de municípios dentro de uma região
+
+```
+SELECT SUM(ST_Area(n.geom::geography)/1000000) AS area FROM municipios n, microrregioes m WHERE m.nm_micro = 'Garanhuns' AND ST_Contains(m.geom, n.geom);
+```
