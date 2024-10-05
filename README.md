@@ -42,7 +42,7 @@ Em seguida, você será solicitado a escolher o diretório onde o PostGIS será 
 
 ### Configurando a Instalação
 
-Para avançar na instalação, desmarque a caixa de seleção que pode aparecer e clique em **NEXT**. Essa etapa é importante para evitar a instalação de componentes desnecessários.
+Para avançar na instalação, desmarque a caixa de seleção que pode aparecer e clique em **NEXT**.
 
 ![](Imagem/stack%20builder%205.png)
 
