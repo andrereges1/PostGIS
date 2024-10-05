@@ -178,3 +178,22 @@ Explicação dos Parâmetros:
 `C:\Temp\pernambuco\pernambuco\municipios.shp`: Este é o caminho completo para o arquivo Shapefile que está sendo convertido. O arquivo municipios.shp contém a geometria e os dados associados dos municípios de Pernambuco.
 
 `> municipios.sql`: O operador `>` redireciona a saída do comando para um arquivo. Neste caso, a saída gerada pelo Shp2pgsql (as instruções SQL) será escrita no arquivo municipios.sql, que pode ser utilizado posteriormente para importar os dados no banco de dados PostgreSQL.
+
+### Importando os dados para o Banco de dados
+
+Após a conversão do arquivo Shapefile em instruções SQL, o próximo passo é importar esses dados para o seu banco de dados PostgreSQL. Para isso, utilizaremos o seguinte comando:
+
+```
+psql -h localhost -p 5433 -d Teste -U postgres -f municipios.sql
+```
+
+Explicação dos Parâmetros:
+`-h localhost`: Este parâmetro especifica o endereço do servidor onde o banco de dados está hospedado. O valor localhost indica que o banco de dados está rodando na mesma máquina em que o comando está sendo executado.
+
+`-p 5433`: Este parâmetro define a porta na qual o servidor PostgreSQL está escutando. O padrão é 5432, mas se você estiver usando uma porta diferente, como 5433, certifique-se de especificá-la corretamente.
+
+`-d Teste`: Este parâmetro indica o nome do banco de dados onde os dados serão importados. Neste caso, o banco de dados é denominado Teste. Certifique-se de que o banco de dados exista antes de executar o comando.
+
+`-U postgres`: Este parâmetro especifica o nome do usuário que está se conectando ao banco de dados. O usuário postgres é o padrão, mas você pode substituí-lo pelo nome de outro usuário com permissões adequadas, se necessário.
+
+`-f municipios.sql`: O parâmetro -f é utilizado para indicar o arquivo que contém as instruções SQL a serem executadas. Neste caso, o arquivo municipios.sql contém os dados convertidos do Shapefile.
