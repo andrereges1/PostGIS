@@ -224,6 +224,8 @@ Microrregiões de Pernambuco
 SELECT n.nm_mun, n.geom FROM municipios n, microrregioes m WHERE m.nm_micro = 'Garanhuns' AND ST_Contains(m.geom, n.geom);
 ```
 
+![](Imagem/Output%201.png)
+
 ### Retorna a área em KM² da cidade de Garanhuns
 
 `geom::geography` converter a coluna `geom` de `geometry` para `geography`. Essa conversão é importa quando queremos um resultado com medidas reais que leve em consideração a curvatura da terra.
@@ -232,11 +234,15 @@ SELECT n.nm_mun, n.geom FROM municipios n, microrregioes m WHERE m.nm_micro = 'G
 SELECT (ST_Area(geom::geography)/1000000) AS area, nm_mun FROM municipios WHERE nm_mun = 'Garanhuns';
 ```
 
+![](Imagem/Output%202.png)
+
 ### Retorna as áreas em KM² de todas as cidade de Pernanbuco
 
 ```
 SELECT (ST_Area(geom::geography)/1000000) AS area, nm_mun FROM municipios;
 ```
+
+![](Imagem/Output%203.png)
 
 ### Retorna todas as cidades que fazem divisa com Garanhuns
 
@@ -244,11 +250,15 @@ SELECT (ST_Area(geom::geography)/1000000) AS area, nm_mun FROM municipios;
 SELECT c1.nm_mun AS municipios_vizinhas FROM municipios c1, municipios c2 WHERE ST_Touches(c1.geom, c2.geom) AND c2.nm_mun = 'Garanhuns';
 ```
 
+![](Imagem/Output%204.png)
+
 ### Realiza a união de duas cidades Garanhuns e Jucati
 
 ```
 SELECT ST_Union(m1.geom, m2.geom) AS area_unida FROM municipios m1, municipios m2 WHERE m1.nm_mun='Garanhuns' AND m2.nm_mun='Jucati';
 ```
+
+![](Imagem/Output%205.png)
 
 ### Retorna o centro geométrico do polígono de Garanhuns
 
@@ -256,14 +266,20 @@ SELECT ST_Union(m1.geom, m2.geom) AS area_unida FROM municipios m1, municipios m
 SELECT ST_Centroid(geom) FROM municipios WHERE nm_mun = 'Garanhuns';
 ```
 
+![](Imagem/Output%206.png)
+
 ### Encontra os municipios mais próximos de um determinado ponto
 
 ```
 SELECT nm_mun, ST_Distance(geom::geography, ST_GeomFromText('POINT(-36.46328362 -8.87669479)', 4326)::geography) AS distancia FROM municipios ORDER BY distancia;
 ```
 
+![](Imagem/Output%207.png)
+
 ### Calcula a área total de municípios dentro de uma região
 
 ```
 SELECT SUM(ST_Area(n.geom::geography)/1000000) AS area FROM municipios n, microrregioes m WHERE m.nm_micro = 'Garanhuns' AND ST_Contains(m.geom, n.geom);
 ```
+
+![](Imagem/Output%208.png)
