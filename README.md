@@ -65,7 +65,7 @@ Inicie o PgAdmin, a interface gráfica de administração para PostgreSQL. Esta 
 
 ### Selecionando o Banco de Dados
 
-Na árvore de objetos à esquerda, expanda a lista de servidores e localize o banco de dados que você deseja usar com o PostGIS. Clique com o botão direito no nome do banco de dados e selecione Query Tool (Ferramenta de Consulta) para abrir um editor de SQL.
+Na árvore de objetos à esquerda, expanda a lista de servidores e localize o banco de dados que você deseja usar com o PostGIS. Clique com o botão direito no nome do banco de dados e selecione `Query Tool` (Ferramenta de Consulta) para abrir um editor de SQL.
 
 ![](Imagem/Query.png)
 
@@ -89,3 +89,22 @@ Com o PostGIS instalado, poderemos finalmente criar uma tabela com suporte a dad
 ### Adicionando Coluna com Suporte a Dados Geoespaciais
 
 Para armazenar dados do tipo `geometry` em uma tabela, é necessário criar uma coluna que ofereça suporte a esse tipo de dado. No exemplo a seguir, criamos uma tabela chamada `ponto` que inclui uma coluna `geom` para armazenar geometrias do tipo `POINT` com o sistema de coordenadas EPSG:4326.
+
+```
+CREATE TABLE ponto(
+	nome VARCHAR(50),
+	geom geometry(POINT, 4326)
+);
+```
+
+![](Imagem/CREATE%20TABLE.png)
+
+### Inserindo Dados na Tabela
+
+Após a criação da tabela, podemos proceder com a inserção de dados. Para adicionar informações utilizando o formato Well-Known Text (WKT), utilizamos a função `ST_GeomFromText`. Essa função permite converter uma representação de texto de uma geometria em um objeto de geometria que pode ser armazenado na tabela.
+
+```
+INSERT INTO ponto (nome, geom) VALUES ('Ponto 1', ST_GeomFromText('POINT(-36.46328362 -8.87669479 )'));
+```
+
+![](Imagem/INSERT.png)
