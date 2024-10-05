@@ -186,7 +186,7 @@ Explicação dos Parâmetros:
 Após a conversão do arquivo Shapefile em instruções SQL, o próximo passo é importar esses dados para o seu banco de dados PostgreSQL. Para isso, utilizaremos o seguinte comando:
 
 ```
-psql -h localhost -p 5433 -d Teste -U postgres -f municipios.sql
+psql -h localhost -p 5432 -d Teste -U postgres -f municipios.sql
 ```
 
 Explicação dos Parâmetros:
@@ -200,3 +200,11 @@ Explicação dos Parâmetros:
 `-U postgres`: Este parâmetro especifica o nome do usuário que está se conectando ao banco de dados. O usuário postgres é o padrão, mas você pode substituí-lo pelo nome de outro usuário com permissões adequadas, se necessário.
 
 `-f municipios.sql`: O parâmetro -f é utilizado para indicar o arquivo que contém as instruções SQL a serem executadas. Neste caso, o arquivo municipios.sql contém os dados convertidos do Shapefile.
+
+Após executar o comando, você será solicitado a inserir a senha do usuário especificado. Digite a senha e pressione **Enter** para continuar com a importação. Ao final os dados serão todos importados para o banco de dados.
+
+![](Imagem/INSERINDO.png)
+
+Ao final os dados serão todos importados para o banco de dados.
+
+![](Imagem/IMPORTADA.png)
