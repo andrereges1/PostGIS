@@ -108,3 +108,25 @@ INSERT INTO ponto (nome, geom) VALUES ('Ponto 1', ST_GeomFromText('POINT(-36.463
 ```
 
 ![](Imagem/INSERT.png)
+
+### Consultando os Dados na Tabela
+
+Para consultar os dados armazenados na tabela, utilizamos o seguinte comando SQL:
+
+```
+SELECT * FROM ponto;
+```
+
+Esse comando retorna todos os registros da tabela `ponto`, permitindo que você visualize todas as informações inseridas.
+
+![](Imagem/Saida.png)
+
+### Visualizando o Ponto em um Mapa
+
+Para visualizar os dados em um mapa, clique no ícone ao lado da coluna geom. Essa ação abrirá uma representação geográfica do ponto armazenado, permitindo uma melhor compreensão da sua localização.
+
+![](Imagem/icone.png)
+
+Logo ápos abrirá um mapa com localização dos pontos
+
+![](Imagem/mapa.png)
