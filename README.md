@@ -16,42 +16,44 @@ PostgreSQL
 
 Com a instalação do PostgreSQL concluída, o próximo passo é instalar o PostGIS.
 
-![](Imagem/stack%20builder.png)
-
 Primeiro, você procura a aplicação **Application Stack Builder**.  
 
-![](Imagem/stack%20builder%202.png)
+![](Imagem/stack%20builder.png)
 
 Após isso, você seleciona a versão do PostgreSQL que estará utilizando.
 
-![](Imagem/stack%20builder%203.png)
+![](Imagem/stack%20builder%202.png)
 
 Em seguida, selecione a aplicação PostGIS.
 
-![](Imagem/stack%20builder%204.png)
+![](Imagem/stack%20builder%203.png)
 
 Agora, escolha a pasta onde a aplicação será armazenada.
 
-![](Imagem/stack%20builder%205.png)
+![](Imagem/stack%20builder%204.png)
 
 Para proceder com a instalação, desmarque a caixa de seleção e clique em "NEXT".
 
+![](Imagem/stack%20builder%205.png)
+
+Depois, basta clicar em "NEXT" em todas as caixas que aparecerem.
+
 ![](Imagem/stack%20builder%208.png)
+<br><br>
 
-Depois, basta clicar em "NEXT" em todas as caixas que aparecerem.<br><br>
-
-## Vinculando a extensão PostGIS à um Banco de Dados
+## Vinculando a extensão PostGIS a um Banco de Dados
 
 ![](Imagem/PgAdmin.png)
 
-Executando o PgAdmin e selecionando o banco de dados que você quer instalar o PostGIS, você executa ferramenta de consulta.
+Abra o PgAdmin e selecione o banco de dados no qual deseja instalar o PostGIS. Em seguida, execute a ferramenta de consulta.
 
 ![](Imagem/Create%20Extension.png)
 
-Para instalar a extension no Banco de dados, você executa o comando:
+Para instalar a extensão no banco de dados, execute o seguinte comando:
 
 ```
 CREATE EXTENSION postgis;
 CREATE EXTENSION postgis_topology;
 ```
+<br>
 ## Criando uma tabela com suporte a dados geometry
