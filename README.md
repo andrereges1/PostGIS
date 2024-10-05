@@ -55,16 +55,28 @@ Continue clicando em **NEXT** nas telas subsequentes até que a instalação est
 
 ## Vinculando a extensão PostGIS a um Banco de Dados
 
-Abra o PgAdmin e selecione o banco de dados no qual deseja instalar o PostGIS. Em seguida, execute a ferramenta de consulta.
+Após a instalação bem-sucedida do PostGIS, o próximo passo é vincular a extensão ao banco de dados em que você deseja trabalhar. Isso permitirá que você utilize as funcionalidades geoespaciais fornecidas pelo PostGIS.
 
-![](Imagem/PgAdmin.png)
+### Abrindo o PgAdmin
 
-Para instalar a extensão no banco de dados, execute o seguinte comando:
+Inicie o PgAdmin, a interface gráfica de administração para PostgreSQL. Esta ferramenta facilita a gestão de bancos de dados e é essencial para a vinculação de extensões.
 
+![](Imagem/PgAdmin1.png)
+
+### Selecionando o Banco de Dados
+
+Na árvore de objetos à esquerda, expanda a lista de servidores e localize o banco de dados que você deseja usar com o PostGIS. Clique com o botão direito no nome do banco de dados e selecione Query Tool (Ferramenta de Consulta) para abrir um editor de SQL.
+
+![](Imagem/Query.png)
+
+### Executando os Comandos de Instalação da Extensão
+
+No editor de SQL, insira os seguintes comandos para instalar as extensões do PostGIS e do Topology:
 ```
 CREATE EXTENSION postgis;
 CREATE EXTENSION postgis_topology;
 ```
+Esses comandos adicionam as funcionalidades geoespaciais ao seu banco de dados, permitindo que você armazene e manipule dados geográficos.
 
 ![](Imagem/Create%20Extension.png)
 
