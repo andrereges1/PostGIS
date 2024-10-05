@@ -193,7 +193,7 @@ Explicação dos Parâmetros:
 
 `-h localhost`: Este parâmetro especifica o endereço do servidor onde o banco de dados está hospedado. O valor localhost indica que o banco de dados está rodando na mesma máquina em que o comando está sendo executado.
 
-`-p 5432`: Este parâmetro define a porta na qual o servidor PostgreSQL está escutando. O padrão é 5432, mas se você estiver usando uma porta diferente, como 5433, certifique-se de especificá-la corretamente.
+`-p 5432`: Este parâmetro define a porta na qual o servidor PostgreSQL está escutando. O padrão é 5432, mas se você estiver usando uma porta diferente, certifique-se de especificá-la corretamente.
 
 `-d Teste`: Este parâmetro indica o nome do banco de dados onde os dados serão importados. Neste caso, o banco de dados é denominado Teste. Certifique-se de que o banco de dados exista antes de executar o comando.
 
