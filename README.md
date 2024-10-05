@@ -56,6 +56,12 @@ CREATE EXTENSION postgis_topology;
 
 ![](Imagem/Create%20Extension.png)
 
-
 <br>
-## Criando uma tabela com suporte a dados geometry
+
+## Criando uma tabela PONTO com suporte a dados geometry
+
+Com o PostGIS instalado, poderemos finalmente criar uma tabela com suporte a dados **geometry**
+
+### Adicionando Coluna com Suporte a Dados Geoespaciais
+
+Para armazenar dados do tipo (`geometry`) em uma tabela, é necessário criar uma coluna que ofereça suporte a esse tipo de dado. No exemplo a seguir, criamos uma tabela chamada (`ponto`) que inclui uma coluna (`geom`) para armazenar geometrias do tipo (`POINT`) com o sistema de coordenadas EPSG:4326.
