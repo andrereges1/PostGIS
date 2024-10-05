@@ -179,6 +179,8 @@ Explicação dos Parâmetros:
 
 `> municipios.sql`: O operador `>` redireciona a saída do comando para um arquivo. Neste caso, a saída gerada pelo Shp2pgsql (as instruções SQL) será escrita no arquivo municipios.sql, que pode ser utilizado posteriormente para importar os dados no banco de dados PostgreSQL.
 
+![](Imagem/terminal%201.png)
+
 ### Importando os dados para o Banco de dados
 
 Após a conversão do arquivo Shapefile em instruções SQL, o próximo passo é importar esses dados para o seu banco de dados PostgreSQL. Para isso, utilizaremos o seguinte comando:
