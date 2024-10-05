@@ -228,7 +228,7 @@ SELECT n.nm_mun, n.geom FROM municipios n, microrregioes m WHERE m.nm_micro = 'G
 
 ### Retorna a área em KM² da cidade de Garanhuns
 
-`geom::geography` converter a coluna `geom` de `geometry` para `geography`. Essa conversão é importa quando queremos um resultado com medidas reais que leve em consideração a curvatura da terra.
+A expressão `geom::geography` é utilizada para converter a coluna `geom` do tipo `geometry` para o tipo `geography`. Essa conversão é fundamental quando buscamos resultados com medidas reais que considerem a curvatura da Terra. Ao utilizar o tipo `geography`, garantimos que as operações espaciais levem em conta a forma esférica do planeta, proporcionando maior precisão em cálculos de distâncias e áreas geográficas.
 
 ```
 SELECT (ST_Area(geom::geography)/1000000) AS area, nm_mun FROM municipios WHERE nm_mun = 'Garanhuns';
