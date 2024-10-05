@@ -188,6 +188,7 @@ psql -h localhost -p 5433 -d Teste -U postgres -f municipios.sql
 ```
 
 Explicação dos Parâmetros:
+
 `-h localhost`: Este parâmetro especifica o endereço do servidor onde o banco de dados está hospedado. O valor localhost indica que o banco de dados está rodando na mesma máquina em que o comando está sendo executado.
 
 `-p 5433`: Este parâmetro define a porta na qual o servidor PostgreSQL está escutando. O padrão é 5432, mas se você estiver usando uma porta diferente, como 5433, certifique-se de especificá-la corretamente.
