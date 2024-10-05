@@ -43,11 +43,9 @@ Depois, basta clicar em "NEXT" em todas as caixas que aparecerem.
 
 ## Vinculando a extensão PostGIS a um Banco de Dados
 
-![](Imagem/PgAdmin.png)
-
 Abra o PgAdmin e selecione o banco de dados no qual deseja instalar o PostGIS. Em seguida, execute a ferramenta de consulta.
 
-![](Imagem/Create%20Extension.png)
+![](Imagem/PgAdmin.png)
 
 Para instalar a extensão no banco de dados, execute o seguinte comando:
 
@@ -55,5 +53,9 @@ Para instalar a extensão no banco de dados, execute o seguinte comando:
 CREATE EXTENSION postgis;
 CREATE EXTENSION postgis_topology;
 ```
+
+![](Imagem/Create%20Extension.png)
+
+
 <br>
 ## Criando uma tabela com suporte a dados geometry
