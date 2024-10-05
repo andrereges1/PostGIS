@@ -130,3 +130,50 @@ Para visualizar os dados em um mapa, clique no ícone ao lado da coluna geom. Es
 Logo ápos abrirá um mapa com localização dos pontos
 
 ![](Imagem/mapa.png)
+
+## Utilizando dados Shapefile no PostGIS
+
+Graças à conformidade com os padrões da OGC (Open Geospatial Consortium), é possível integrar diretamente os dados de um arquivo Shapefile no PostGIS. Isso facilita a inclusão de informações geoespaciais em seu banco de dados, permitindo que você aproveite as funcionalidades avançadas que o PostGIS oferece.
+
+### Modificando a variável de ambiente PATH no Windows
+
+Para configurar o ambiente corretamente, localize a pasta `bin` do PostgreSQL e execute o seguinte comando:
+
+```
+set PATH=%PATH%;C:\Program Files\PostgreSQL\<sua_versao>\bin
+```
+
+Se a versão do PostgreSQL instalada em sua máquina for diferente da mencionada, certifique-se de substituir `<sua_versao>` pela versão correta que você está utilizando. Isso garantirá que você tenha acesso às ferramentas do PostgreSQL a partir do terminal.
+
+### Convertendo Shapefile em SQL
+
+Para utilizar dados de um arquivo Shapefile em um banco de dados PostgreSQL com a extensão PostGIS, é necessário converter o arquivo Shapefile (.shp) em instruções SQL. Siga os passos abaixo para realizar essa conversão.
+
+#### Passo 1: Preparação do Arquivo Shapefile
+
+1. Download do Arquivo: Certifique-se de que o arquivo Shapefile já esteja baixado em sua máquina. Caso ainda não tenha, você pode obtê-lo no site do IBGE.
+
+2. Organização dos Arquivos: Mova todos os arquivos relacionados ao Shapefile para uma pasta específica. O Shapefile geralmente consiste em vários arquivos com extensões como `.shp`, `.shx`, `.dbf`, entre outros.
+
+#### Passo 2: Acessando o Terminal
+
+Abra o terminal (CMD) do Windows e navegue até a pasta onde os arquivos do Shapefile estão localizados.
+
+#### Passo 3: Executando o Comando de Conversão
+
+Utilize o seguinte comando para converter o arquivo Shapefile em instruções SQL:
+
+```
+Shp2pgsql -W <LATIN1> -s 4326 C:\Temp\pernambuco\pernambuco\municipios.shp > municipios.sql
+```
+
+Explicação dos Parâmetros:
+Shp2pgsql: Este é o utilitário de linha de comando que converte arquivos Shapefile em instruções SQL para serem executadas em um banco de dados PostgreSQL. Ele é parte das ferramentas do PostGIS.
+
+-W LATIN1: A opção -W especifica a codificação de texto a ser utilizada para os dados. A codificação LATIN1 é recomendada para garantir que caracteres especiais sejam corretamente interpretados durante a importação.
+
+-s 4326: A opção -s define o sistema de referência espacial (SRID) dos dados geográficos. O SRID 4326 refere-se ao sistema de coordenadas WGS 84, amplamente utilizado para dados geográficos em longitude e latitude.
+
+C:\Temp\pernambuco\pernambuco\municipios.shp: Este é o caminho completo para o arquivo Shapefile que está sendo convertido. O arquivo municipios.shp contém a geometria e os dados associados dos municípios de Pernambuco.
+
+> municipios.sql: O operador > redireciona a saída do comando para um arquivo. Neste caso, a saída gerada pelo Shp2pgsql (as instruções SQL) será escrita no arquivo municipios.sql, que pode ser utilizado posteriormente para importar os dados no banco de dados PostgreSQL.
