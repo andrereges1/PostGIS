@@ -168,12 +168,13 @@ Shp2pgsql -W <LATIN1> -s 4326 C:\Temp\pernambuco\pernambuco\municipios.shp > mun
 ```
 
 Explicação dos Parâmetros:
-Shp2pgsql: Este é o utilitário de linha de comando que converte arquivos Shapefile em instruções SQL para serem executadas em um banco de dados PostgreSQL. Ele é parte das ferramentas do PostGIS.
 
--W LATIN1: A opção -W especifica a codificação de texto a ser utilizada para os dados. A codificação LATIN1 é recomendada para garantir que caracteres especiais sejam corretamente interpretados durante a importação.
+    `Shp2pgsql`: Este é o utilitário de linha de comando que converte arquivos Shapefile em instruções SQL para serem executadas em um banco de dados PostgreSQL. Ele é parte das ferramentas do PostGIS.
 
--s 4326: A opção -s define o sistema de referência espacial (SRID) dos dados geográficos. O SRID 4326 refere-se ao sistema de coordenadas WGS 84, amplamente utilizado para dados geográficos em longitude e latitude.
+    `-W LATIN1`: A opção -W especifica a codificação de texto a ser utilizada para os dados. A codificação LATIN1 é recomendada para garantir que caracteres especiais sejam corretamente interpretados durante a importação.
 
-C:\Temp\pernambuco\pernambuco\municipios.shp: Este é o caminho completo para o arquivo Shapefile que está sendo convertido. O arquivo municipios.shp contém a geometria e os dados associados dos municípios de Pernambuco.
+    `-s 4326`: A opção -s define o sistema de referência espacial (SRID) dos dados geográficos. O SRID 4326 refere-se ao sistema de coordenadas WGS 84, amplamente utilizado para dados geográficos em longitude e latitude.
 
-> municipios.sql: O operador > redireciona a saída do comando para um arquivo. Neste caso, a saída gerada pelo Shp2pgsql (as instruções SQL) será escrita no arquivo municipios.sql, que pode ser utilizado posteriormente para importar os dados no banco de dados PostgreSQL.
+    `C:\Temp\pernambuco\pernambuco\municipios.shp`: Este é o caminho completo para o arquivo Shapefile que está sendo convertido. O arquivo municipios.shp contém a geometria e os dados associados dos municípios de Pernambuco.
+
+    `> municipios.sql`: O operador `>` redireciona a saída do comando para um arquivo. Neste caso, a saída gerada pelo Shp2pgsql (as instruções SQL) será escrita no arquivo municipios.sql, que pode ser utilizado posteriormente para importar os dados no banco de dados PostgreSQL.
