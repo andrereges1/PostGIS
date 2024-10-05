@@ -12,31 +12,43 @@ O que você precisa ter instalado:
 PostgreSQL
 ```
 
-## Passo 1 - Instalação
+## Instalação do PostGIS
 
-Com a instalação do PostgreSQL concluída, o próximo passo é instalar o PostGIS.
+Após concluir a instalação do PostgreSQL, o próximo passo é instalar a extensão PostGIS, que permite trabalhar com dados geoespaciais de forma eficiente.
 
-Primeiro, você procura a aplicação **Application Stack Builder**.  
+### Abrindo o Application Stack Builder
+
+Para iniciar a instalação do PostGIS, abra a aplicação **Application Stack Builder**, que geralmente é instalada junto com o PostgreSQL. Este utilitário facilita a instalação de componentes adicionais.
 
 ![](Imagem/stack%20builder.png)
 
-Após isso, você seleciona a versão do PostgreSQL que estará utilizando.
+### Selecionando a Versão do PostgreSQL
+
+Na interface do **Application Stack Builder**, você será solicitado a selecionar a versão do PostgreSQL que está instalada em seu sistema. Certifique-se de escolher a versão correta para garantir a compatibilidade com o PostGIS.
 
 ![](Imagem/stack%20builder%202.png)
 
-Em seguida, selecione a aplicação PostGIS.
+### Selecionando a Aplicação PostGIS
+
+Depois de selecionar a versão do PostgreSQL, uma lista de aplicações disponíveis será exibida. Marque a caixa correspondente ao PostGIS e clique em **NEXT** para prosseguir com a instalação.
 
 ![](Imagem/stack%20builder%203.png)
 
-Agora, escolha a pasta onde a aplicação será armazenada.
+### Escolhendo o Diretório de Instalação
+
+Em seguida, você será solicitado a escolher o diretório onde o PostGIS será instalado. É recomendável usar o diretório padrão a menos que você tenha uma razão específica para alterá-lo. Após selecionar o diretório, clique em **NEXT**.
 
 ![](Imagem/stack%20builder%204.png)
 
-Para proceder com a instalação, desmarque a caixa de seleção e clique em "NEXT".
+### Configurando a Instalação
+
+Para avançar na instalação, desmarque a caixa de seleção que pode aparecer e clique em **NEXT**. Essa etapa é importante para evitar a instalação de componentes desnecessários.
 
 ![](Imagem/stack%20builder%205.png)
 
-Depois, basta clicar em "NEXT" em todas as caixas que aparecerem.
+### Finalizando a Instalação
+
+Continue clicando em **NEXT** nas telas subsequentes até que a instalação esteja concluída. O assistente de instalação guiará você por cada etapa, e a instalação do PostGIS pode levar alguns minutos, dependendo da sua máquina.
 
 ![](Imagem/stack%20builder%208.png)
 <br><br>
@@ -64,4 +76,4 @@ Com o PostGIS instalado, poderemos finalmente criar uma tabela com suporte a dad
 
 ### Adicionando Coluna com Suporte a Dados Geoespaciais
 
-Para armazenar dados do tipo (`geometry`) em uma tabela, é necessário criar uma coluna que ofereça suporte a esse tipo de dado. No exemplo a seguir, criamos uma tabela chamada (`ponto`) que inclui uma coluna (`geom`) para armazenar geometrias do tipo (`POINT`) com o sistema de coordenadas EPSG:4326.
+Para armazenar dados do tipo `geometry` em uma tabela, é necessário criar uma coluna que ofereça suporte a esse tipo de dado. No exemplo a seguir, criamos uma tabela chamada `ponto` que inclui uma coluna `geom` para armazenar geometrias do tipo `POINT` com o sistema de coordenadas EPSG:4326.
