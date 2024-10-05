@@ -137,7 +137,7 @@ Graças à conformidade com os padrões da OGC (Open Geospatial Consortium), é 
 
 ### Modificando a variável de ambiente PATH no Windows
 
-Para configurar o ambiente corretamente, localize a pasta `bin` do PostgreSQL e execute o seguinte comando:
+Para configurar o ambiente corretamente, localize a pasta `bin` do PostgreSQL e execute o seguinte comando no CMD do Windows:
 
 ```
 set PATH=%PATH%;C:\Program Files\PostgreSQL\<sua_versao>\bin
